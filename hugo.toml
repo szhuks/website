@@ -33,10 +33,10 @@ delayDisqus = true
 showRelatedPosts = true 
 gcse = false
 Lastmod = false
-rss = true 
+#rss = true 
 pagination = "10"
 description="Your can add your website description here."
-lunrSearch = true
+#lunrSearch = true
 previewCardImagePlacement = "bottom"
 hidePostImage = false
 tagSubtitle = "Here, you’ll discover the latest notes that explore new insights, and unique perspectives on the world."
@@ -52,14 +52,13 @@ pagerSize = 9
   website = "https://www.binovarghese.com/"
   authorInfo = "Give everything for your dreams."
   authorPostImage = "/img/author-post-img.jpg"
-  linkedin = "username"
+  linkedin = "sophia-zhukovsky-9b18b2152"
   #paypal = "username"
 
 [sitemap]
   changefreq = "monthly"
   priority = 0.5
   filename = "sitemap.xml"
-
 
 [[menu.main]]
     name = "Home"
