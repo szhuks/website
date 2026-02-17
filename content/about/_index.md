@@ -8,7 +8,7 @@ My name is Sophia Zhukovsky. I'm a freelance professional with over six years of
 
 I care deeply about sustainability, because to me, it means more than buzzwords or frameworks. It means building an organization or initiative that contributes to its community, advancing causes from social equity to environmental protection. I'm deeply passionate about using my versatile skillset to help you achieve outcomes that matter. 
 
-# Gallery image 
+<!-- Gallery image -->
 {{< figure src="/img/about/about-gallery/about-gallery-1.jpg" >}}
 
 
