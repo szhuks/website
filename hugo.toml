@@ -41,7 +41,7 @@ previewCardImagePlacement = "bottom"
 hidePostImage = false
 tagSubtitle = "Here, you’ll discover the latest notes that explore new insights, and unique perspectives on the world."
 homepageLayout = "profile" #blog
-profileShortbio = "I'm Sophia, an independent project manager and consultant experienced in sustainability and service. I bring a personal approach to my work: not only will I work with your organization to design and execute a project plan, but I'll invest in getting to know your organizational mission from the inside out."
+profileShortbio = "I'm Sophia, an independent project manager, consultant, and editor experienced in sustainability and community. I bring a personal approach to my work: not only will I work with your organization to design and execute a project plan, but I'll invest in getting to know your organizational mission from the inside out."
 profilePhoto = "img/profile/home-profile-pic.jpg"
 
 [pagination]
