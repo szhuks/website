@@ -1,0 +1,128 @@
+{{ define "main" }}
+<section class="services-wrap">
+
+  <!-- Only kept header -->
+  <header class="services-header">
+    <h1 class="services-title">
+      {{ .Params.heading | default "Services" }}
+    </h1>
+    {{ with .Params.description }}
+      <p class="services-desc">{{ . }}</p>
+    {{ end }}
+  </header>
+
+  {{ $groups := .Params.services }}
+  {{ if not $groups }}
+    <p>Add your accordion data under <code>services:</code> in <code>content/services/_index.md</code>.</p>
+  {{ else }}
+
+    <div class="services-onecol">
+      {{ range $gi, $g := $groups }}
+        <div class="services-group">
+          <div class="services-group-title">{{ $g.title }}</div>
+
+          <div class="accordion" data-accordion>
+            {{ range $ii, $it := $g.items }}
+              {{ $id := printf "acc-%d-%d" $gi $ii }}
+              <div class="acc-item">
+                <button
+                  class="acc-trigger"
+                  type="button"
+                  aria-expanded="false"
+                  aria-controls="{{ $id }}"
+                >
+                  <span class="acc-label">{{ $it.title }}</span>
+                  <span class="acc-icon">+</span>
+                </button>
+
+                <div class="acc-panel" id="{{ $id }}" hidden>
+                  <div class="acc-panel-inner">
+                    {{ $it.body | markdownify }}
+                  </div>
+                </div>
+              </div>
+            {{ end }}
+          </div>
+        </div>
+      {{ end }}
+    </div>
+
+  {{ end }}
+</section>
+
+<style>
+  .services-wrap{max-width:900px;margin:0 auto;padding:60px 20px;}
+  .services-header{margin-bottom:40px;}
+  .services-title{font-size:42px;line-height:1.1;margin:0 0 8px;}
+  .services-desc{margin:0;opacity:.7;max-width:60ch;}
+
+  .services-group{margin-bottom:40px;}
+  .services-group-title{
+    font-size:13px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    opacity:.6;
+    margin-bottom:16px;
+  }
+
+  .accordion{border-top:1px solid rgba(0,0,0,.12);}
+  .acc-item{border-bottom:1px solid rgba(0,0,0,.12);}
+
+  .acc-trigger{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 0;
+    background:transparent;
+    border:0;
+    text-align:left;
+    cursor:pointer;
+    font-size:17px;
+    font-weight:600;
+  }
+
+  .acc-icon{
+    font-size:20px;
+    transition:transform .2s ease;
+  }
+
+  .acc-trigger[aria-expanded="true"] .acc-icon{
+    transform:rotate(45deg);
+  }
+
+  .acc-panel-inner{
+    padding:0 0 20px;
+    opacity:.85;
+    max-width:65ch;
+  }
+</style>
+
+<script>
+  (function () {
+    document.querySelectorAll('[data-accordion]').forEach(acc => {
+      const triggers = acc.querySelectorAll('.acc-trigger');
+
+      triggers.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const expanded = btn.getAttribute('aria-expanded') === 'true';
+          const panel = document.getElementById(btn.getAttribute('aria-controls'));
+
+          // close others
+          triggers.forEach(other => {
+            if (other !== btn) {
+              other.setAttribute('aria-expanded', 'false');
+              const p = document.getElementById(other.getAttribute('aria-controls'));
+              if (p) p.hidden = true;
+            }
+          });
+
+          btn.setAttribute('aria-expanded', String(!expanded));
+          if (panel) panel.hidden = expanded;
+        });
+      });
+    });
+  })();
+</script>
+
+{{ end }}
