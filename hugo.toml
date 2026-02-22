@@ -1,4 +1,4 @@
-baseURL = 'https://szhuks.github.io/'
+baseURL = "https://szhuks.github.io/website/"
 languageCode = 'en-us'
 title = 'Sophia Zhukovsky'
 theme = 'light-bi-hugo'
