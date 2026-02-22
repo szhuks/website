@@ -1,128 +1,240 @@
 {{ define "main" }}
 <section class="services-wrap">
 
-  <!-- Only kept header -->
-  <header class="services-header">
-    <h1 class="services-title">
-      {{ .Params.heading | default "Services" }}
-    </h1>
-    {{ with .Params.description }}
-      <p class="services-desc">{{ . }}</p>
-    {{ end }}
-  </header>
+  <div class="services-layout">
 
-  {{ $groups := .Params.services }}
-  {{ if not $groups }}
-    <p>Add your accordion data under <code>services:</code> in <code>content/services/_index.md</code>.</p>
-  {{ else }}
+    <!-- LEFT COLUMN -->
+    <header class="services-header">
+      <h1 class="services-title">
+        {{ .Params.heading | default "Services" }}
+      </h1>
+      {{ with .Params.description }}
+        <p class="services-desc">{{ . }}</p>
+      {{ end }}
+    </header>
 
-    <div class="services-onecol">
-      {{ range $gi, $g := $groups }}
-        <div class="services-group">
-          <div class="services-group-title">{{ $g.title }}</div>
+    <!-- RIGHT COLUMN -->
+    <div class="services-content">
 
-          <div class="accordion" data-accordion>
-            {{ range $ii, $it := $g.items }}
-              {{ $id := printf "acc-%d-%d" $gi $ii }}
-              <div class="acc-item">
-                <button
-                  class="acc-trigger"
-                  type="button"
-                  aria-expanded="false"
-                  aria-controls="{{ $id }}"
-                >
-                  <span class="acc-label">{{ $it.title }}</span>
-                  <span class="acc-icon">+</span>
-                </button>
+      {{ $groups := .Params.services }}
+      {{ if not $groups }}
+        <p>Add your accordion data under <code>services:</code> in <code>content/services/_index.md</code>.</p>
+      {{ else }}
 
-                <div class="acc-panel" id="{{ $id }}" hidden>
-                  <div class="acc-panel-inner">
-                    {{ $it.body | markdownify }}
+        {{ range $gi, $g := $groups }}
+          <div class="services-group">
+            <div class="services-group-title">{{ $g.title }}</div>
+
+            <div class="accordion" data-accordion>
+              {{ range $ii, $it := $g.items }}
+                {{ $id := printf "acc-%d-%d" $gi $ii }}
+                <div class="acc-item">
+                  <button
+                    class="acc-trigger"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="{{ $id }}"
+                  >
+                    <span class="acc-label">{{ $it.title }}</span>
+                    <span class="acc-icon">+</span>
+                  </button>
+
+                  <div class="acc-panel" id="{{ $id }}">
+                    <div class="acc-panel-inner">
+                      {{ $it.body | markdownify }}
+                    </div>
                   </div>
                 </div>
-              </div>
-            {{ end }}
+              {{ end }}
+            </div>
           </div>
-        </div>
-      {{ end }}
-    </div>
+        {{ end }}
 
-  {{ end }}
+      {{ end }}
+
+    </div>
+  </div>
+
 </section>
 
 <style>
-  .services-wrap{max-width:900px;margin:0 auto;padding:60px 20px;}
-  .services-header{margin-bottom:40px;}
-  .services-title{font-size:42px;line-height:1.1;margin:0 0 8px;}
-  .services-desc{margin:0;opacity:.7;max-width:60ch;}
-
-  .services-group{margin-bottom:40px;}
-  .services-group-title{
-    font-size:13px;
-    letter-spacing:.08em;
-    text-transform:uppercase;
-    opacity:.6;
-    margin-bottom:16px;
+  .services-wrap{
+    max-width:1200px;
+    margin:0 auto;
+    padding:80px 32px;
+    overflow-anchor:none;
   }
 
-  .accordion{border-top:1px solid rgba(0,0,0,.12);}
-  .acc-item{border-bottom:1px solid rgba(0,0,0,.12);}
+  .services-layout{
+    display:grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap:80px;
+    align-items:start;
+  }
+
+  @media (max-width: 980px){
+    .services-layout{
+      grid-template-columns: 1fr;
+      gap:40px;
+    }
+  }
+
+  .services-content{min-width:0;}
+
+  /* LEFT COLUMN */
+  .services-header{
+    position:sticky;
+    top:40px;
+  }
+
+  @media (max-width: 980px){
+    .services-header{position:static;}
+  }
+
+  .services-title{
+    font-size:56px;
+    line-height:1.05;
+    margin:0 0 12px;
+  }
+
+  .services-desc{
+    font-size:18px;
+    line-height:1.6;
+    opacity:.75;
+    max-width:48ch;
+    margin:0;
+  }
+
+  /* RIGHT COLUMN */
+  .services-group{
+    margin-bottom:48px;
+  }
+
+  .services-group-title{
+    font-size:13px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    opacity:.6;
+    margin-bottom:18px;
+  }
+
+  .accordion{
+    border-top:1px solid rgba(0,0,0,.12);
+    overflow-anchor:none;
+  }
+
+  .acc-item{
+    border-bottom:1px solid rgba(0,0,0,.12);
+  }
 
   .acc-trigger{
     width:100%;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:18px 0;
+    gap:16px;
+    padding:20px 0;
     background:transparent;
     border:0;
     text-align:left;
     cursor:pointer;
-    font-size:17px;
+    font-size:18px;
     font-weight:600;
   }
 
+  .acc-label{
+    flex:1;
+  }
+
   .acc-icon{
+    width:24px;
+    text-align:right;
     font-size:20px;
-    transition:transform .2s ease;
+    opacity:.75;
+    transition:transform .25s ease;
   }
 
   .acc-trigger[aria-expanded="true"] .acc-icon{
     transform:rotate(45deg);
   }
 
+  .acc-panel{
+    overflow:hidden;
+    height:0;
+    transition:height 260ms ease;
+  }
+
   .acc-panel-inner{
-    padding:0 0 20px;
+    padding:0 0 24px;
+    font-size:18px;
+    line-height:1.6;
     opacity:.85;
-    max-width:65ch;
+    max-width:70ch;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .acc-panel{transition:none;}
+    .acc-icon{transition:none;}
   }
 </style>
 
 <script>
-  (function () {
-    document.querySelectorAll('[data-accordion]').forEach(acc => {
-      const triggers = acc.querySelectorAll('.acc-trigger');
+(function () {
 
-      triggers.forEach(btn => {
-        btn.addEventListener('click', () => {
-          const expanded = btn.getAttribute('aria-expanded') === 'true';
-          const panel = document.getElementById(btn.getAttribute('aria-controls'));
+  function closePanel(btn) {
+    const panel = document.getElementById(btn.getAttribute('aria-controls'));
+    if (!panel) return;
 
-          // close others
-          triggers.forEach(other => {
-            if (other !== btn) {
-              other.setAttribute('aria-expanded', 'false');
-              const p = document.getElementById(other.getAttribute('aria-controls'));
-              if (p) p.hidden = true;
-            }
-          });
+    btn.setAttribute('aria-expanded', 'false');
 
-          btn.setAttribute('aria-expanded', String(!expanded));
-          if (panel) panel.hidden = expanded;
+    panel.style.height = panel.scrollHeight + 'px';
+    panel.offsetHeight;
+    panel.style.height = '0px';
+  }
+
+  function openPanel(btn) {
+    const panel = document.getElementById(btn.getAttribute('aria-controls'));
+    if (!panel) return;
+
+    btn.setAttribute('aria-expanded', 'true');
+
+    panel.style.height = panel.scrollHeight + 'px';
+
+    panel.addEventListener('transitionend', function handler(e){
+      if (e.propertyName === 'height' &&
+          btn.getAttribute('aria-expanded') === 'true') {
+        panel.style.height = 'auto';
+      }
+      panel.removeEventListener('transitionend', handler);
+    });
+  }
+
+  document.querySelectorAll('[data-accordion]').forEach(acc => {
+    const triggers = acc.querySelectorAll('.acc-trigger');
+
+    triggers.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const wasExpanded = btn.getAttribute('aria-expanded') === 'true';
+        const scrollY = window.scrollY;
+
+        triggers.forEach(other => {
+          if (other !== btn) closePanel(other);
+        });
+
+        if (wasExpanded) {
+          closePanel(btn);
+        } else {
+          openPanel(btn);
+        }
+
+        requestAnimationFrame(() => {
+          window.scrollTo({ top: scrollY });
         });
       });
     });
-  })();
+  });
+
+})();
 </script>
 
 {{ end }}
