@@ -48,8 +48,8 @@ profilePhoto = "img/profile/home-profile-pic.jpg"
 pagerSize = 9
 
 [Params.Author]
-  name = "Sophia Zhukovsky"
-  website = "https://www.binovarghese.com/"
+  name = ""
+  website = ""
   authorInfo = "Give everything for your dreams."
   authorPostImage = "/img/author-post-img.jpg"
   linkedin = "sophia-zhukovsky"
