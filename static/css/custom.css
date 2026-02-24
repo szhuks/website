@@ -61,3 +61,28 @@ body {
   transform: translateY(-3px);
   box-shadow: 0 16px 36px rgba(0,0,0,.18);
 }
+
+.about-card-wrap{
+  background:#fff;
+  border:1px solid rgba(0,0,0,.10);
+  border-radius:16px;
+  padding:28px;
+  box-shadow:0 14px 40px rgba(0,0,0,.08);
+}
+
+.about-lead{
+  font-size:18px;
+  line-height:1.6;
+  margin-bottom:18px;
+}
+
+.about-card-wrap h2{
+  margin-top:28px;
+  margin-bottom:10px;
+  font-weight:650;
+}
+
+.about-card-wrap p{
+  line-height:1.75;
+  font-size:18px;
+}
