@@ -1,0 +1,69 @@
+/* --- About page “card” look --- */
+
+/* Reading width for main content */
+.page-content,
+.single-page-content,
+.content,
+main .container[role="main"] {
+  max-width: 980px;
+}
+
+/* The “box/card” wrapper */
+.about-card-wrap {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.10);
+  border-radius: 16px;
+  padding: 28px 28px;
+  box-shadow: 0 14px 40px rgba(0,0,0,.08);
+}
+
+/* Typography polish inside the card */
+.about-card-wrap h1,
+.about-card-wrap h2,
+.about-card-wrap h3 {
+  margin-top: 0.6em;
+}
+
+.about-card-wrap p {
+  line-height: 1.75;
+  font-size: 18px;
+}
+
+/* Spacing between sections */
+.about-card-wrap h2 {
+  margin-top: 28px;
+  margin-bottom: 10px;
+  font-weight: 650;
+}
+
+/* Softer background behind the card */
+body {
+  background: #fafafa;
+}
+
+/* Gallery grid */
+.about-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+
+@media (max-width: 900px) {
+  .about-gallery { grid-template-columns: 1fr; }
+}
+
+/* Hover “pop” like your screenshot */
+.about-gallery img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 14px;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.about-gallery a:hover img,
+.about-gallery img:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px rgba(0,0,0,.18);
+}
