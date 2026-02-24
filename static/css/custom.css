@@ -1,6 +1,3 @@
-/* --- About page “card” look --- */
-
-/* Reading width for main content */
 .page-content,
 .single-page-content,
 .content,
@@ -8,8 +5,7 @@ main .container[role="main"] {
   max-width: 980px;
 }
 
-/* The “box/card” wrapper */
-.about-card-wrap {
+.about-well {
   background: #fff;
   border: 1px solid rgba(0,0,0,.10);
   border-radius: 16px;
@@ -17,32 +13,29 @@ main .container[role="main"] {
   box-shadow: 0 14px 40px rgba(0,0,0,.08);
 }
 
-/* Typography polish inside the card */
-.about-card-wrap h1,
-.about-card-wrap h2,
-.about-card-wrap h3 {
+.about-well h1,
+.about-well h2,
+.about-well h3 {
   margin-top: 0.6em;
 }
 
-.about-card-wrap p {
+.about-well p {
   line-height: 1.75;
   font-size: 18px;
 }
 
-/* Spacing between sections */
-.about-card-wrap h2 {
+.about-well h2 {
   margin-top: 28px;
   margin-bottom: 10px;
   font-weight: 650;
 }
 
-/* Softer background behind the card */
 body {
   background: #fafafa;
 }
 
-/* Gallery grid */
-.about-gallery {
+.about-well .about-gallery,
+.about-well .gallery {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 14px;
@@ -50,11 +43,13 @@ body {
 }
 
 @media (max-width: 900px) {
-  .about-gallery { grid-template-columns: 1fr; }
+  .about-well .about-gallery,
+  .about-well .gallery {
+    grid-template-columns: 1fr;
+  }
 }
 
-/* Hover “pop” like your screenshot */
-.about-gallery img {
+.about-well img {
   width: 100%;
   height: auto;
   display: block;
@@ -62,8 +57,7 @@ body {
   transition: transform .18s ease, box-shadow .18s ease;
 }
 
-.about-gallery a:hover img,
-.about-gallery img:hover {
+.about-well img:hover {
   transform: translateY(-3px);
   box-shadow: 0 16px 36px rgba(0,0,0,.18);
 }

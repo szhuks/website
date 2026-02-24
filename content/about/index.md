@@ -3,9 +3,7 @@ layout: "about"
 title: "About me"
 ---
 
-<div class="about-card-wrap">
-
-<p class="about-lead">Independent, versatile consultant based in Amsterdam.</p>
+Independent, versatile consultant based in Amsterdam.
 
 ## What I do
 
@@ -19,12 +17,10 @@ Over the years, I've worked in climate tech, UN-affiliated nonprofits, and commu
 
 I care deeply about sustainability, because to me, it means more than buzzwords or frameworks. It means building an organization or initiative that contributes to its community, advancing causes from social equity to environmental protection. I'm deeply passionate about using my versatile skillset to help you achieve outcomes that matter.
 
-## Get in touch
-
-Get in touch today to discuss your needs, and how my services can meet them.
-
 ## Where I work
 
 {{< gallery dir="gallery" >}}
 
-</div>
+## Get in touch
+
+Get in touch today to discuss your needs, and how my services can meet them.
