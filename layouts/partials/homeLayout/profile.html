@@ -6,17 +6,18 @@
 
       <div class="col-sm-12 col-md-8 col-lg-8">
         <h2 class="fw-medium">Projects that matter.</h2>
-        <p class="fw-light">Your source for independent, impactful work. 
+        <p class="fw-light">Your source for independent, impactful work." 
 </p>
 
         <p class="fw-light">{{ .Site.Params.profileShortbio | safeHTML }}</p>
 
         <p class="fw-light">If you're new here, feel free to explore the website by clicking the below button.</p>
-
-        <a href="{{ relLangURL "/about/" }}"  class="">
+       
+        {{ with site.GetPage "/about" }}
+        <a href="{{ .RelPermalink }}">
           <button type="button" class="btn btn-success bg-cgreen">Explore</button>
         </a>
-      </div>
+        {{ end }}
 
       <div class="col-sm-12 col-md-4 col-lg-4">
       {{ $imgPath := .Site.Params.profilePhoto }}

@@ -3,8 +3,6 @@ layout: "about"
 title: "About me"
 ---
 
-Independent, versatile consultant based in Amsterdam.
-
 ## What I do
 
 My name is Sophia Zhukovsky. I'm a freelance professional with over six years of experience in project management, research, operations, and administrative support.
