@@ -1,0 +1,43 @@
+<div class="about-gallery">
+  {{/* Use page resources so images can be processed by Hugo if needed */}}
+  {{ $dir := .Get "dir" | default "gallery" }}
+  {{ $pattern := printf "%s/*" $dir }}
+
+  {{ $imgs := .Page.Resources.Match $pattern }}
+  {{ if not $imgs }}
+    <p><em>No images found in {{ $pattern }}. Put images in content/about/{{ $dir }}/</em></p>
+  {{ else }}
+    {{ range $imgs }}
+      {{/* Resize optional (prevents huge images); adjust width if you want */}}
+      {{ $img := .Fit "900x900" }}
+      <figure class="about-gallery__item">
+        <img src="{{ $img.RelPermalink }}" alt="" loading="lazy">
+      </figure>
+    {{ end }}
+  {{ end }}
+</div>
+
+<style>
+  .about-gallery{
+    display:grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap:18px;
+    margin: 18px 0 28px;
+  }
+  @media (max-width: 720px){
+    .about-gallery{ grid-template-columns: 1fr; }
+  }
+  .about-gallery__item{
+    margin:0;
+    border-radius:18px;
+    overflow:hidden;
+    background: rgba(0,0,0,.03);
+    box-shadow: 0 10px 24px rgba(0,0,0,.08);
+  }
+  .about-gallery__item img{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:cover;
+  }
+</style>
