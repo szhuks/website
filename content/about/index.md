@@ -3,9 +3,7 @@ layout: "about"
 title: "About me"
 ---
 
-{{< lead >}}
-Independent, versatile consultant based in Amsterdam.
-{{< /lead >}}
+<p class="about-lead">Independent, versatile consultant based in Amsterdam.</p>
 
 {{< card title="What I do" >}}
 My name is Sophia Zhukovsky. I'm a freelance professional with over six years of experience in project management, research, operations, and administrative support.
