@@ -1,0 +1,168 @@
+{{ define "main" }}
+<section class="about-pro">
+  <div class="about-hero">
+    <h1 class="about-title">{{ .Title }}</h1>
+
+    {{ with .Content }}
+      <!-- We'll parse your markdown content into sections in the template -->
+    {{ end }}
+  </div>
+
+  {{/* ---- Extract sections from the markdown by headings ---- */}}
+  {{ $raw := .RawContent }}
+
+  {{/* Helper: grab text between headings.
+       We’ll do simple split-based parsing: everything after a heading until the next "## " */}}
+
+  {{ $parts := split $raw "\n## " }}
+
+  {{/* The first part is intro (front matter removed by Hugo; raw content starts at body) */}}
+  <div class="about-grid">
+    <div class="about-left">
+      <div class="about-card about-intro">
+        {{ (index $parts 0) | markdownify }}
+      </div>
+
+      {{/* Cards from your sections */}}
+      {{ range $i, $p := $parts }}
+        {{ if gt $i 0 }}
+          {{ $section := printf "## %s" $p }}
+          {{/* Section title is first line; body is rest */}}
+          {{ $lines := split $p "\n" }}
+          {{ $title := index $lines 0 }}
+          {{ $body := delimit (after 1 $lines) "\n" }}
+
+          {{/* Put “Where I work” on the right, everything else on the left */}}
+          {{ if (in (lower $title) "where i work") }}
+            {{/* handled in right column below */}}
+          {{ else }}
+            <div class="about-card">
+              <h2>{{ $title }}</h2>
+              {{ $body | markdownify }}
+            </div>
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    </div>
+
+    <aside class="about-right">
+      {{/* Find and render the "Where I work" section on the right */}}
+      {{ range $i, $p := $parts }}
+        {{ if gt $i 0 }}
+          {{ $lines := split $p "\n" }}
+          {{ $title := index $lines 0 }}
+          {{ $body := delimit (after 1 $lines) "\n" }}
+
+          {{ if (in (lower $title) "where i work") }}
+            <div class="about-card about-gallery-card">
+              <h2>{{ $title }}</h2>
+              {{ $body | markdownify }}
+            </div>
+          {{ end }}
+        {{ end }}
+      {{ end }}
+
+      <div class="about-card about-cta">
+        <h3>Get in touch</h3>
+        <p>If you’d like to discuss a project, send me a note and I’ll reply with next steps.</p>
+        <a class="about-btn" href="{{ "/services/" | relURL }}">See services</a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<style>
+  .about-pro{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 70px 24px;
+  }
+
+  .about-hero{
+    margin-bottom: 30px;
+  }
+
+  .about-title{
+    font-size: 56px;
+    line-height: 1.05;
+    margin: 0 0 10px;
+  }
+
+  .about-grid{
+    display: grid;
+    grid-template-columns: 1.45fr 1fr;
+    gap: 34px;
+    align-items: start;
+  }
+
+  @media (max-width: 980px){
+    .about-title{font-size: 44px;}
+    .about-grid{grid-template-columns: 1fr; gap: 22px;}
+  }
+
+  .about-left, .about-right{min-width: 0;}
+
+  .about-card{
+    background: rgba(255,255,255,0.75);
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 16px;
+    padding: 22px 22px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+    margin-bottom: 18px;
+  }
+
+  .about-card h2{
+    margin: 0 0 10px;
+    font-size: 28px;
+    letter-spacing: -0.01em;
+  }
+
+  .about-card h3{
+    margin: 0 0 10px;
+    font-size: 22px;
+    letter-spacing: -0.01em;
+  }
+
+  .about-card p{
+    margin: 0 0 12px;
+    line-height: 1.65;
+    font-size: 18px;
+  }
+
+  .about-card p:last-child{margin-bottom: 0;}
+
+  /* Make the gallery feel interactive (hover pop) */
+  .about-gallery-card .gallery-grid{
+    margin-top: 12px;
+  }
+
+  .about-gallery-card img{
+    transition: transform 160ms ease, box-shadow 160ms ease;
+    will-change: transform;
+  }
+
+  .about-gallery-card a:hover img,
+  .about-gallery-card img:hover{
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 0 14px 30px rgba(0,0,0,0.12);
+  }
+
+  .about-cta{
+    position: sticky;
+    top: 24px;
+  }
+  @media (max-width: 980px){
+    .about-cta{position: static;}
+  }
+
+  .about-btn{
+    display: inline-block;
+    margin-top: 8px;
+    padding: 10px 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(0,0,0,0.12);
+    text-decoration: none;
+    font-weight: 600;
+  }
+</style>
+{{ end }}

@@ -1,6 +1,6 @@
 ---
-layout: "about"
 title: "About me"
+type: "about"
 ---
 
 <div class="about-pro">
