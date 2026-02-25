@@ -8,27 +8,29 @@
       <p class="fw-light hero-tagline">Your source for independent, impactful work.</p>
     </div>
 
-    <!-- One centered unit: card + photo -->
+    <!-- Two-column hero: columns match height; inner card wraps content -->
     <div class="hero-grid">
 
-      <!-- Bio card -->
-      <div class="profile-box">
-        <div class="fw-light profile-bio">
-          {{ .Site.Params.profileShortbio | safeHTML }}
-        </div>
+      <!-- LEFT COLUMN (full height), inner card wraps content -->
+      <div class="hero-left">
+        <div class="profile-box">
+          <div class="fw-light profile-bio">
+            {{ .Site.Params.profileShortbio | safeHTML }}
+          </div>
 
-        <div class="text-center mt-4">
-          {{ with site.GetPage "/about" }}
-          <a href="{{ .RelPermalink }}">
-            <button type="button" class="btn btn-success bg-cgreen">
-              Learn more
-            </button>
-          </a>
-          {{ end }}
+          <div class="profile-cta">
+            {{ with site.GetPage "/about" }}
+            <a href="{{ .RelPermalink }}">
+              <button type="button" class="btn btn-success bg-cgreen">
+                Learn more
+              </button>
+            </a>
+            {{ end }}
+          </div>
         </div>
       </div>
 
-      <!-- Photo -->
+      <!-- RIGHT COLUMN (full height photo card) -->
       <div class="profile-photo-wrap">
         {{ $imgPath := .Site.Params.profilePhoto }}
         {{ with resources.Get $imgPath }}
@@ -36,7 +38,7 @@
             loading="lazy"
             src="{{ .RelPermalink }}"
             alt="Image of Author"
-            class="img-fluid"
+            class="profile-photo"
           >
         {{ end }}
       </div>
@@ -51,8 +53,8 @@
 <section class="section-primary-bg">
   <div class="container">
 
-    <div class="row mt-5">
-      <div class="col-12 mb-4">
+    <div class="row mt-5 justify-content-center text-center">
+      <div class="col-12 col-lg-8 mb-4">
         <h2 class="fw-medium">Projects</h2>
         <p class="mt-0">
           A selection of client projects.
@@ -60,15 +62,15 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="row justify-content-center">
       {{ $pag := .Paginate (where site.RegularPages "Type" "in" (slice "posts")) 3 }}
       {{ range $pag.Pages }}
         {{ partial "post_preview_card" . }}
       {{ end }}
     </div>
 
-    <div class="row">
-      <div class="col-12 col-lg-6 mb-4">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-6 mb-4 text-center">
         <a href="{{ relLangURL "/posts/" }}"
            class="link-underline position-relative d-inline-block">
           Browse all <i class="bi bi-arrow-right"></i>
@@ -86,8 +88,8 @@
   <section class="notes-section">
     <div class="container">
 
-      <div class="row">
-        <div class="col-12 mb-4 mt-4">
+      <div class="row justify-content-center text-center">
+        <div class="col-12 col-lg-8 mb-4 mt-4">
           <h2 class="fw-medium">Notes</h2>
           <p class="mt-0">
             A personal mix of poetry, reading notes, social media fragments, and curious reflections.
@@ -95,14 +97,14 @@
         </div>
       </div>
 
-      <div class="row">
+      <div class="row justify-content-center">
         {{ range first 3 (where site.RegularPages "Type" "in" (slice "notes")) }}
           {{ partial "post_preview_imgless_card" . }}
         {{ end }}
       </div>
 
-      <div class="row">
-        <div class="col-12 col-lg-6 mb-4">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-6 mb-4 text-center">
           <a href="{{ relLangURL "/notes/" }}"
              class="link-underline position-relative d-inline-block">
             Browse all <i class="bi bi-arrow-right"></i>

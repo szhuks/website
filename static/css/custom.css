@@ -1,4 +1,4 @@
-/* ================= CONTAINER WIDTH ================= */
+/* ================= GLOBAL CONTAINER WIDTH ================= */
 
 .page-content,
 .single-page-content,
@@ -10,7 +10,6 @@ main .container[role="main"] {
 body {
   background: #fafafa;
 }
-
 
 
 /* ================= ABOUT PAGE ================= */
@@ -69,19 +68,18 @@ body {
 }
 
 
-
-/* ================= PROFILE SECTION ================= */
+/* ================= HERO / PROFILE SECTION ================= */
 
 /* Prevent content hiding under navbar */
 .hero-section {
-  padding-top: 120px;  /* adjust if navbar height changes */
-  padding-bottom: 40px;
+  padding-top: 120px;
+  padding-bottom: 44px;
 }
 
-/* Center headline + tagline */
+/* Headline + tagline centered */
 .hero-heading {
   text-align: center;
-  margin-bottom: 32px;
+  margin-bottom: 30px;
 }
 
 .hero-title {
@@ -94,73 +92,97 @@ body {
 }
 
 
-/* ONE centered layout unit: card + photo */
+/*
+  Balanced fixed-width grid
+  Card width relates proportionally to photo width
+*/
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 700px) 300px;
-  gap: 60px;
-  justify-content: center;  /* centers entire block */
-  align-items: start;
+  grid-template-columns: 680px 340px; /* card | photo */
+  gap: 56px;
+  justify-content: center;  /* center entire unit */
+  align-items: stretch;
 }
 
+/* Left column centers the card vertically */
+.hero-left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-/* Bio card */
+/* Bio card wraps content */
 .profile-box {
   background-color: #f7f7f7;
-  padding: 36px;
   border-radius: 18px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-  text-align: center;   /* center text inside */
+  padding: 28px 32px;
+  text-align: center;
+  width: 100%;
 }
 
-/* Bio text refinement */
-.profile-box p {
+/* Text formatting */
+.profile-box p,
+.profile-bio {
   line-height: 1.7;
   font-size: 18px;
-  max-width: 680px;
+  max-width: 600px;
   margin-left: auto;
   margin-right: auto;
 }
 
-
-/* Learn More button spacing */
-.profile-box .btn {
+/* Button spacing */
+.profile-cta {
   margin-top: 18px;
 }
 
-
-/* Photo wrapper — same visual weight as card */
+/* Photo wrapper matches its column width */
 .profile-photo-wrap {
   border-radius: 18px;
   overflow: hidden;
   box-shadow: 0 8px 24px rgba(0,0,0,0.06);
   background: #fff;
-  align-self: start;
+  width: 100%;
 }
 
-.profile-photo-wrap img {
-  display: block;
+/* Photo fills wrapper cleanly */
+.profile-photo {
   width: 100%;
   height: auto;
+  display: block;
 }
 
 
+/* Slightly reduce whitespace before Projects */
+.section-primary-bg {
+  padding-top: 10px;
+}
 
-/* ================= MEDIA ================= */
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1100px) {
+  .hero-grid {
+    grid-template-columns: 1fr 320px;
+  }
+}
 
 @media (max-width: 992px) {
-
   .hero-section {
     padding-top: 100px;
   }
 
   .hero-grid {
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: 26px;
+    justify-items: center;
+  }
+
+  .profile-box {
+    max-width: 720px;
   }
 
   .profile-photo-wrap {
-    width: 260px;
-    justify-self: center;
+    width: 280px;
   }
 }
