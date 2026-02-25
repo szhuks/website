@@ -1,3 +1,5 @@
+/* ================= CONTAINER WIDTH ================= */
+
 .page-content,
 .single-page-content,
 .content,
@@ -5,11 +7,19 @@ main .container[role="main"] {
   max-width: 980px;
 }
 
+body {
+  background: #fafafa;
+}
+
+
+
+/* ================= ABOUT PAGE ================= */
+
 .about-well {
   background: #fff;
   border: 1px solid rgba(0,0,0,.10);
   border-radius: 16px;
-  padding: 28px 28px;
+  padding: 28px;
   box-shadow: 0 14px 40px rgba(0,0,0,.08);
 }
 
@@ -28,10 +38,6 @@ main .container[role="main"] {
   margin-top: 28px;
   margin-bottom: 10px;
   font-weight: 650;
-}
-
-body {
-  background: #fafafa;
 }
 
 .about-well .about-gallery,
@@ -62,47 +68,99 @@ body {
   box-shadow: 0 16px 36px rgba(0,0,0,.18);
 }
 
-.about-card-wrap{
-  background:#fff;
-  border:1px solid rgba(0,0,0,.10);
-  border-radius:16px;
-  padding:28px;
-  box-shadow:0 14px 40px rgba(0,0,0,.08);
+
+
+/* ================= PROFILE SECTION ================= */
+
+/* Prevent content hiding under navbar */
+.hero-section {
+  padding-top: 120px;  /* adjust if navbar height changes */
+  padding-bottom: 40px;
 }
 
-.about-card-wrap p{
-  line-height:1.75;
-  font-size:18px;
+/* Center headline + tagline */
+.hero-heading {
+  text-align: center;
+  margin-bottom: 32px;
 }
 
-.about-card-wrap h2{
-  margin-top:28px;
-  margin-bottom:10px;
-  font-weight:650;
+.hero-title {
+  margin-bottom: 10px;
 }
 
-.about-gallery{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:14px;
-  margin-top:14px;
+.hero-tagline {
+  margin-bottom: 0;
+  font-size: 18px;
 }
 
-@media (max-width:900px){
-  .about-gallery{grid-template-columns:1fr;}
+
+/* ONE centered layout unit: card + photo */
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 700px) 300px;
+  gap: 60px;
+  justify-content: center;  /* centers entire block */
+  align-items: start;
 }
 
-.about-gallery img{
-  width:100%;
-  height:320px;
-  object-fit:cover;
-  display:block;
-  border-radius:14px;
-  transition:transform .18s ease, box-shadow .18s ease;
+
+/* Bio card */
+.profile-box {
+  background-color: #f7f7f7;
+  padding: 36px;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  text-align: center;   /* center text inside */
 }
 
-.about-gallery a:hover img,
-.about-gallery img:hover{
-  transform:translateY(-3px);
-  box-shadow:0 16px 36px rgba(0,0,0,.18);
+/* Bio text refinement */
+.profile-box p {
+  line-height: 1.7;
+  font-size: 18px;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* Learn More button spacing */
+.profile-box .btn {
+  margin-top: 18px;
+}
+
+
+/* Photo wrapper — same visual weight as card */
+.profile-photo-wrap {
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  background: #fff;
+  align-self: start;
+}
+
+.profile-photo-wrap img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+
+
+/* ================= MEDIA ================= */
+
+@media (max-width: 992px) {
+
+  .hero-section {
+    padding-top: 100px;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .profile-photo-wrap {
+    width: 260px;
+    justify-self: center;
+  }
 }
