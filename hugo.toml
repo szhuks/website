@@ -3,6 +3,7 @@ languageCode = "en-us"
 title = "Sophia Zhukovsky"
 theme = "light-bi-hugo"
 
+# IMPORTANT for GitHub Pages subfolder deploys:
 relativeURLs = false
 canonifyURLs = true
 
@@ -14,6 +15,7 @@ pygmentsCodeFences = true
 pygmentsCodefencesGuessSyntax = true
 pygmentsUseClassic = true
 pygmentOptions = "linenos=inline"
+
 enableRobotsTXT = true
 enableGitInfo = false
 ignoreLogs = ["warning-goldmark-raw-html"]
@@ -39,13 +41,10 @@ hidePostImage = false
 tagSubtitle = "Here, you’ll discover the latest notes that explore new insights, and unique perspectives on the world."
 homepageLayout = "profile"
 
-profileHeadline = "Projects that matter."
-profileTagline = "Your source for independent, impactful work."
-
+profileHeadline = "Projects that matter: Your source for independent, impactful work."
 profileShortbio = """
-<p>I’m Sophia, a project manager, consultant, and editor experienced in sustainability and community. I bring a personal approach to my work: not only will I work with your organization to design and execute a project plan, but I’ll invest in getting to know your organizational mission from the inside out.</p>
+<p>I'm Sophia, a project manager, consultant, and editor experienced in sustainability and community. I bring a personal approach to my work: not only will I work with your organization to design and execute a project plan, but I'll invest in getting to know your organizational mission from the inside out.</p>
 """
-
 profilePhoto = "img/profile/home-profile-pic.jpg"
 
 [pagination]
