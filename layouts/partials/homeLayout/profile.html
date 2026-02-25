@@ -1,39 +1,57 @@
-<section class="hero-section">
-  <div class="container">
-
-    <div class="hero-heading">
-      <h1 class="hero-title">{{ .Site.Params.profileHeadline }}</h1>
-      <p class="hero-tagline">{{ .Site.Params.profileTagline }}</p>
+<!-- bg-white -->
+<section class="profile-hero">
+  <div class="container" role="main">
+    <!-- Headline + tagline centered -->
+    <div class="row justify-content-center">
+      <div class="col-12 text-center">
+        <h2 class="fw-medium profile-hero-title">{{ .Site.Params.profileHeadline }}</h2>
+        <p class="fw-light profile-hero-tagline">{{ .Site.Params.profileTagline }}</p>
+      </div>
     </div>
 
-    <div class="hero-grid">
+    <!-- Card + photo row -->
+    <div class="row profile-hero-row align-items-stretch justify-content-center">
 
-      <div class="hero-left">
-        {{ .Site.Params.profileShortbio | safeHTML }}
+      <!-- LEFT: card wrapper (keeps column height aligned, but card itself stays snug) -->
+      <div class="col-12 col-lg-7 d-flex justify-content-center">
+        <div class="profile-card-wrap d-flex align-items-center">
+          <div class="profile-box">
+            <div class="fw-light profile-box-text">
+              {{ .Site.Params.profileShortbio | safeHTML }}
+            </div>
+
+            {{ with site.GetPage "/about" }}
+            <div class="profile-box-cta">
+              <a href="{{ .RelPermalink }}" class="btn btn-success bg-cgreen">
+                Learn more
+              </a>
+            </div>
+            {{ end }}
+          </div>
+        </div>
       </div>
 
-      <div class="profile-photo-wrap">
-        {{ $imgPath := .Site.Params.profilePhoto }}
-        {{ with resources.Get $imgPath }}
+      <!-- RIGHT: photo -->
+      <div class="col-12 col-lg-5 d-flex justify-content-center">
+        <div class="profile-photo-wrap">
           <img
             loading="lazy"
-            src="{{ .RelPermalink }}"
+            src="{{ (printf "/%s" .Site.Params.profilePhoto) | relURL }}"
             alt="Image of Author"
             class="profile-photo"
           >
-        {{ end }}
+        </div>
       </div>
 
     </div>
   </div>
 </section>
 
-
 <!-- Project section -->
-<section class="section-primary-bg">
+<section class="section-primary-bg projects-section">
   <div class="container">
 
-    <div class="row mt-5">
+    <div class="row mt-5 justify-content-center">
       <div class="col-12 mb-4 text-center">
         <h2 class="fw-medium">Projects</h2>
         <p class="mt-0">
@@ -49,9 +67,9 @@
       {{ end }}
     </div>
 
-    <div class="row">
+    <div class="row justify-content-center">
       <div class="col-12 mb-4 text-center">
-        <a href="{{ "posts/" | relLangURL }}"
+        <a href="{{ "/posts/" | relURL }}"
            class="link-underline position-relative d-inline-block">
           Browse all <i class="bi bi-arrow-right"></i>
         </a>
@@ -61,7 +79,6 @@
   </div>
 </section>
 
-
 <!-- NOTES SECTION -->
 {{ range .Site.Sections }}
   {{ if eq .Section "notes" }}
@@ -69,7 +86,7 @@
     <div class="container">
 
       <div class="row">
-        <div class="col-12 mb-4 mt-4 text-center">
+        <div class="col-12 mb-4 mt-4">
           <h2 class="fw-medium">Notes</h2>
           <p class="mt-0">
             A personal mix of poetry, reading notes, social media fragments, and curious reflections.
@@ -77,15 +94,15 @@
         </div>
       </div>
 
-      <div class="row justify-content-center">
+      <div class="row">
         {{ range first 3 (where site.RegularPages "Type" "in" (slice "notes")) }}
           {{ partial "post_preview_imgless_card" . }}
         {{ end }}
       </div>
 
       <div class="row">
-        <div class="col-12 mb-4 text-center">
-          <a href="{{ "notes/" | relLangURL }}"
+        <div class="col-12 col-lg-6 mb-4">
+          <a href="{{ "/notes/" | relURL }}"
              class="link-underline position-relative d-inline-block">
             Browse all <i class="bi bi-arrow-right"></i>
           </a>

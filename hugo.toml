@@ -6,7 +6,7 @@ theme = "light-bi-hugo"
 relativeURLs = false
 canonifyURLs = true
 
-summaryLength  = "30"
+summaryLength = "30"
 metaDataFormat = "yaml"
 pygmentsStyle = "trac"
 pygmentsUseClasses = true
@@ -41,14 +41,11 @@ homepageLayout = "profile"
 
 profileHeadline = "Projects that matter."
 profileTagline = "Your source for independent, impactful work."
+
 profileShortbio = """
-<div class="profile-box">
-  <p>I'm Sophia, a project manager, consultant, and editor experienced in sustainability and community. I bring a personal approach to my work: not only will I work with your organization to design and execute a project plan, but I'll invest in getting to know your organizational mission from the inside out.</p>
-  <div class="profile-cta">
-    <a class="btn btn-success bg-cgreen" href="/website/about/">Learn more</a>
-  </div>
-</div>
+<p>I’m Sophia, a project manager, consultant, and editor experienced in sustainability and community. I bring a personal approach to my work: not only will I work with your organization to design and execute a project plan, but I’ll invest in getting to know your organizational mission from the inside out.</p>
 """
+
 profilePhoto = "img/profile/home-profile-pic.jpg"
 
 [pagination]
@@ -66,23 +63,22 @@ changefreq = "monthly"
 priority = 0.5
 filename = "sitemap.xml"
 
-# IMPORTANT: menu URLs should NOT start with "/" for subfolder GitHub Pages
 [[menu.main]]
 name = "Home"
-url = ""
+url = "/"
 weight = 1
 
 [[menu.main]]
 name = "Services"
-url = "services/"
+url = "/services/"
 weight = 2
 
 [[menu.main]]
 name = "Projects"
-url = "posts/"
+url = "/posts/"
 weight = 3
 
 [[menu.main]]
 name = "About"
-url = "about/"
+url = "/about/"
 weight = 4
