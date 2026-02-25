@@ -1,10 +1,10 @@
 baseURL = "https://szhuks.github.io/website/"
-languageCode = 'en-us'
-title = 'Sophia Zhukovsky'
-theme = 'light-bi-hugo'
+languageCode = "en-us"
+title = "Sophia Zhukovsky"
+theme = "light-bi-hugo"
 
-# theme settings
-# https://github.com/binokochumolvarghese/lightbi-hugo/wiki/Theme-Parameters
+relativeURLs = false
+canonifyURLs = true
 
 summaryLength  = "30"
 metaDataFormat = "yaml"
@@ -14,10 +14,9 @@ pygmentsCodeFences = true
 pygmentsCodefencesGuessSyntax = true
 pygmentsUseClassic = true
 pygmentOptions = "linenos=inline"
-#googleAnalytics = "XXX"
 enableRobotsTXT = true
 enableGitInfo = false
-ignoreLogs = ['warning-goldmark-raw-html']
+ignoreLogs = ["warning-goldmark-raw-html"]
 
 [Params]
 selfHosted = true
@@ -30,20 +29,25 @@ hideAuthor = false
 useHLJS = true
 socialShare = true
 delayDisqus = true
-showRelatedPosts = true 
+showRelatedPosts = true
 gcse = false
 Lastmod = false
-#rss = true 
 pagination = "10"
-description="Your can add your website description here."
-#lunrSearch = true
+description = "Your can add your website description here."
 previewCardImagePlacement = "bottom"
 hidePostImage = false
 tagSubtitle = "Here, you’ll discover the latest notes that explore new insights, and unique perspectives on the world."
-homepageLayout = "profile" #blog
-profileHeadline = "Projects that matter: Your source for independent, impactful work."
+homepageLayout = "profile"
+
+profileHeadline = "Projects that matter."
+profileTagline = "Your source for independent, impactful work."
 profileShortbio = """
-<p> I'm Sophia, a project manager, consultant, and editor experienced in sustainability and community. I bring a personal approach to my work: not only will I work with your organization to design and execute a project plan, but I'll invest in getting to know your organizational mission from the inside out.
+<div class="profile-box">
+  <p>I'm Sophia, a project manager, consultant, and editor experienced in sustainability and community. I bring a personal approach to my work: not only will I work with your organization to design and execute a project plan, but I'll invest in getting to know your organizational mission from the inside out.</p>
+  <div class="profile-cta">
+    <a class="btn btn-success bg-cgreen" href="/website/about/">Learn more</a>
+  </div>
+</div>
 """
 profilePhoto = "img/profile/home-profile-pic.jpg"
 
@@ -51,34 +55,34 @@ profilePhoto = "img/profile/home-profile-pic.jpg"
 pagerSize = 9
 
 [Params.Author]
-  name = ""
-  website = ""
-  authorInfo = "Give everything for your dreams."
-  authorPostImage = "/img/author-post-img.jpg"
-  linkedin = "sophia-zhukovsky"
-  #paypal = "username"
+name = ""
+website = ""
+authorInfo = "Give everything for your dreams."
+authorPostImage = "/img/author-post-img.jpg"
+linkedin = "sophia-zhukovsky"
 
 [sitemap]
-  changefreq = "monthly"
-  priority = 0.5
-  filename = "sitemap.xml"
+changefreq = "monthly"
+priority = 0.5
+filename = "sitemap.xml"
+
+# IMPORTANT: menu URLs should NOT start with "/" for subfolder GitHub Pages
+[[menu.main]]
+name = "Home"
+url = ""
+weight = 1
 
 [[menu.main]]
-    name = "Home"
-    url = "/"
-    weight = 1
+name = "Services"
+url = "services/"
+weight = 2
 
 [[menu.main]]
-    name = "Services"
-    url = "/services/"
-    weight = 2
+name = "Projects"
+url = "posts/"
+weight = 3
 
 [[menu.main]]
-    name = "Projects"
-    url = "/posts/"
-    weight = 3
-
-[[menu.main]]
-    name = "About"
-    url = "/about/"
-    weight = 4
+name = "About"
+url = "about/"
+weight = 4
