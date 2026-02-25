@@ -12,7 +12,7 @@ body {
 }
 
 
-/* ================= ABOUT PAGE ================= */
+/* ================= ABOUT PAGE (CARD / WELL STYLES) ================= */
 
 .about-well {
   background: #fff;
@@ -39,8 +39,38 @@ body {
   font-weight: 650;
 }
 
+.about-card-wrap{
+  background:#fff;
+  border:1px solid rgba(0,0,0,.10);
+  border-radius:16px;
+  padding:28px;
+  box-shadow:0 14px 40px rgba(0,0,0,.08);
+}
+
+.about-card-wrap p{
+  line-height:1.75;
+  font-size:18px;
+}
+
+.about-card-wrap h2{
+  margin-top:28px;
+  margin-bottom:10px;
+  font-weight:650;
+}
+
+
+/* ================= GALLERY (SQUARE THUMBNAILS) ================= */
+/*
+  Applies globally (not only inside about-well),
+  and forces square tiles using aspect-ratio.
+*/
+
+.gallery,
+.about-gallery,
+.about-well .gallery,
 .about-well .about-gallery,
-.about-well .gallery {
+.about-card-wrap .gallery,
+.about-card-wrap .about-gallery {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 14px;
@@ -48,21 +78,50 @@ body {
 }
 
 @media (max-width: 900px) {
+  .gallery,
+  .about-gallery,
+  .about-well .gallery,
   .about-well .about-gallery,
-  .about-well .gallery {
+  .about-card-wrap .gallery,
+  .about-card-wrap .about-gallery {
     grid-template-columns: 1fr;
   }
 }
 
-.about-well img {
-  width: 100%;
-  height: auto;
+/* Ensure each item behaves like a square tile */
+.gallery a,
+.about-gallery a,
+.about-well .gallery a,
+.about-well .about-gallery a,
+.about-card-wrap .gallery a,
+.about-card-wrap .about-gallery a {
   display: block;
   border-radius: 14px;
+  overflow: hidden;           /* crops the image to a square */
+}
+
+/* Square thumbnails */
+.gallery img,
+.about-gallery img,
+.about-well .gallery img,
+.about-well .about-gallery img,
+.about-card-wrap .gallery img,
+.about-card-wrap .about-gallery img {
+  width: 100%;
+  aspect-ratio: 1 / 1;        /* ✅ makes it square */
+  height: auto;               /* let aspect-ratio control height */
+  object-fit: cover;
+  display: block;
+  border-radius: 0;           /* rounding handled by the <a> wrapper */
   transition: transform .18s ease, box-shadow .18s ease;
 }
 
-.about-well img:hover {
+.gallery a:hover img,
+.about-gallery a:hover img,
+.about-well .gallery a:hover img,
+.about-well .about-gallery a:hover img,
+.about-card-wrap .gallery a:hover img,
+.about-card-wrap .about-gallery a:hover img {
   transform: translateY(-3px);
   box-shadow: 0 16px 36px rgba(0,0,0,.18);
 }
@@ -70,13 +129,11 @@ body {
 
 /* ================= HERO / PROFILE SECTION ================= */
 
-/* Prevent content hiding under navbar */
 .hero-section {
   padding-top: 120px;
   padding-bottom: 44px;
 }
 
-/* Headline + tagline centered */
 .hero-heading {
   text-align: center;
   margin-bottom: 30px;
@@ -91,27 +148,22 @@ body {
   font-size: 18px;
 }
 
-
-/*
-  Balanced fixed-width grid
-  Card width relates proportionally to photo width
-*/
+/* Balanced fixed-width grid (card + photo) */
 .hero-grid {
   display: grid;
-  grid-template-columns: 680px 340px; /* card | photo */
+  grid-template-columns: 680px 340px;
   gap: 56px;
-  justify-content: center;  /* center entire unit */
+  justify-content: center;
   align-items: stretch;
 }
 
-/* Left column centers the card vertically */
+/* Left column: full height, card wraps content */
 .hero-left {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Bio card wraps content */
 .profile-box {
   background-color: #f7f7f7;
   border-radius: 18px;
@@ -121,7 +173,6 @@ body {
   width: 100%;
 }
 
-/* Text formatting */
 .profile-box p,
 .profile-bio {
   line-height: 1.7;
@@ -131,12 +182,11 @@ body {
   margin-right: auto;
 }
 
-/* Button spacing */
 .profile-cta {
   margin-top: 18px;
 }
 
-/* Photo wrapper matches its column width */
+/* Photo container */
 .profile-photo-wrap {
   border-radius: 18px;
   overflow: hidden;
@@ -145,7 +195,6 @@ body {
   width: 100%;
 }
 
-/* Photo fills wrapper cleanly */
 .profile-photo {
   width: 100%;
   height: auto;
@@ -153,7 +202,7 @@ body {
 }
 
 
-/* Slightly reduce whitespace before Projects */
+/* Reduce whitespace before Projects */
 .section-primary-bg {
   padding-top: 10px;
 }
