@@ -129,6 +129,7 @@ body {
 .profile-hero-row{
   margin-top: 10px;
   margin-bottom: 30px;
+  --bs-gutter-x: 1rem;
 }
 
 .profile-card-wrap{
