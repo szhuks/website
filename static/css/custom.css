@@ -34,8 +34,6 @@ body {
   background: #fafafa;
 }
 
-/* ---------- ABOUT GALLERY (SQUARE TILES) ---------- */
-
 .about-well .about-gallery,
 .about-well .gallery,
 .about-gallery {
@@ -80,8 +78,6 @@ body {
   box-shadow: 0 16px 36px rgba(0,0,0,.18);
 }
 
-/* ---------- ABOUT CARD WRAP ---------- */
-
 .about-card-wrap{
   background:#fff;
   border:1px solid rgba(0,0,0,.10);
@@ -101,18 +97,6 @@ body {
   font-weight:650;
 }
 
-/* ---------------- PROFILE HOMEPAGE ---------------- */
-
-.profile-hero {
-  padding-top: 90px;
-}
-
-@media (max-width: 992px) {
-  .profile-hero {
-    padding-top: 110px;
-  }
-}
-
 .intro-header{
   --bs-gutter-x: 2rem;
 }
@@ -129,12 +113,7 @@ body {
 .profile-hero-row{
   margin-top: 10px;
   margin-bottom: 30px;
-  --bs-gutter-x: 2rem;
-}
-
-.profile-hero-row > [class*="col-"] {
-  padding-left: 0.5rem !important;
-  padding-right: 0.5rem !important;
+  --bs-gutter-x: 1.25rem;
 }
 
 .profile-card-wrap{
@@ -145,14 +124,14 @@ body {
   justify-content: center;
 }
 
-.profile-box{
-  background-color:#f7f7f7;
-  padding:26px;
-  border-radius:16px;
-  box-shadow:0 10px 26px rgba(0,0,0,0.06);
-  width:100%;
-  max-width:none;
-  text-align:center;
+.profile-box {
+  background-color: #f7f7f7;
+  padding: 26px;
+  border-radius: 16px;
+  box-shadow: 0 10px 26px rgba(0,0,0,0.06);
+  width: 100%;
+  max-width: 640px;
+  text-align: center;
 }
 
 .profile-box-text p{
@@ -166,12 +145,12 @@ body {
 }
 
 .profile-photo-wrap{
-  width:100%;
-  max-width:none;
-  min-height:420px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  width: 100%;
+  max-width: 360px;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .profile-photo{
@@ -195,8 +174,6 @@ body {
     height: auto;
   }
 }
-
-/* ---------------- PROJECTS SECTION ALIGNMENT ---------------- */
 
 .projects-section .row{
   --bs-gutter-x: 2rem;
