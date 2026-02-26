@@ -1,5 +1,5 @@
-/* ...existing code... */
-/* Removed accidental HTML — this file must contain only CSS rules */
-:root{--bg:#fff;--text:#222}
-body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
-/* ...existing code... */
+/* GitHub Pages subfolder shim:
+   Theme is requesting: /website/website/style.min.css
+   Real file exists at: /website/style.min.css
+*/
+@import url("../style.min.css");
