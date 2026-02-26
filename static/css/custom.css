@@ -101,6 +101,25 @@ body {
   --bs-gutter-x: 2rem;
 }
 
+/* ---- HERO: prevent text going under sticky header ---- */
+.profile-hero{
+  padding-top: 84px;
+}
+
+@media (max-width: 992px){
+  .profile-hero{
+    padding-top: 96px;
+  }
+}
+
+/* Optional safety if your navbar overlaps content */
+.navbar,
+header,
+.intro-header{
+  position: relative;
+  z-index: 10;
+}
+
 .profile-hero-title{
   margin-top: 18px;
   margin-bottom: 8px;
@@ -110,15 +129,27 @@ body {
   margin-bottom: 26px;
 }
 
+/* ---- HERO ROW: keep Bootstrap row behavior; tighten spacing via gutters ---- */
 .profile-hero-row{
   margin-top: 10px;
   margin-bottom: 30px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 32px;
+  --bs-gutter-x: 1.25rem;
 }
 
+/* Pull the two columns slightly closer without changing sizes */
+@media (min-width: 992px){
+  .profile-hero-row{
+    --bs-gutter-x: 1rem;
+  }
+  .profile-hero-row > .col-lg-7{
+    padding-right: 0.25rem;
+  }
+  .profile-hero-row > .col-lg-5{
+    padding-left: 0.25rem;
+  }
+}
+
+/* LEFT */
 .profile-card-wrap{
   width: 100%;
   min-height: 420px;
@@ -147,6 +178,7 @@ body {
   margin-top: 18px;
 }
 
+/* RIGHT */
 .profile-photo-wrap{
   width: 100%;
   max-width: 360px;
