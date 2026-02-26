@@ -1,14 +1,18 @@
-baseURL = "https://szhuks.github.io/"
+baseURL = "https://szhuks.github.io/website/"
 languageCode = "en-us"
 title = "Sophia Zhukovsky"
 theme = "light-bi-hugo"
 
-# IMPORTANT for GitHub Pages project sites (/website/)
 relativeURLs = false
 canonifyURLs = true
 
-summaryLength = "30"
+enableRobotsTXT = true
+enableGitInfo = false
+ignoreLogs = ["warning-goldmark-raw-html"]
+
+summaryLength = 30
 metaDataFormat = "yaml"
+
 pygmentsStyle = "trac"
 pygmentsUseClasses = true
 pygmentsCodeFences = true
@@ -16,9 +20,8 @@ pygmentsCodefencesGuessSyntax = true
 pygmentsUseClassic = true
 pygmentOptions = "linenos=inline"
 
-enableRobotsTXT = true
-enableGitInfo = false
-ignoreLogs = ["warning-goldmark-raw-html"]
+[pagination]
+pagerSize = 9
 
 [Params]
 selfHosted = true
@@ -35,26 +38,19 @@ showRelatedPosts = true
 gcse = false
 Lastmod = false
 pagination = "10"
-description = "Your can add your website description here."
 previewCardImagePlacement = "bottom"
 hidePostImage = false
 
+# profile homepage
 homepageLayout = "profile"
-
-# Your profile partial expects these as TWO fields:
 profileHeadline = "Projects that matter."
-profileTagline  = "Your source for independent, impactful work."
+profileTagline = "Your source for independent, impactful work."
 
-# Close the paragraph tag so layout doesn’t get weird
 profileShortbio = """
 <p>I'm Sophia, a project manager, consultant, and editor experienced in sustainability and community. I bring a personal approach to my work: not only will I work with your organization to design and execute a project plan, but I'll invest in getting to know your organizational mission from the inside out.</p>
 """
 
-# Keep this relative to /static/
 profilePhoto = "img/profile/home-profile-pic.jpg"
-
-[pagination]
-pagerSize = 9
 
 [Params.Author]
 name = ""
