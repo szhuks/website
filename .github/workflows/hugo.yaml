@@ -34,8 +34,7 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Build
-        run: |
-          hugo --minify --baseURL "https://szhuks.github.io/website/"
+        run: hugo --minify
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
