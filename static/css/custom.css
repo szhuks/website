@@ -145,14 +145,14 @@ body {
   justify-content: center;
 }
 
-.profile-box {
-  background-color: #f7f7f7;
-  padding: 26px;
-  border-radius: 16px;
-  box-shadow: 0 10px 26px rgba(0,0,0,0.06);
-  width: 100%;
-  max-width: 640px;
-  text-align: center;
+.profile-box{
+  background-color:#f7f7f7;
+  padding:26px;
+  border-radius:16px;
+  box-shadow:0 10px 26px rgba(0,0,0,0.06);
+  width:100%;
+  max-width:none;
+  text-align:center;
 }
 
 .profile-box-text p{
@@ -166,12 +166,12 @@ body {
 }
 
 .profile-photo-wrap{
-  width: 100%;
-  max-width: 360px;
-  min-height: 420px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width:100%;
+  max-width:none;
+  min-height:420px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
 .profile-photo{
