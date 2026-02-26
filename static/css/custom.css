@@ -133,20 +133,22 @@ header,
 .profile-hero-row{
   margin-top: 10px;
   margin-bottom: 30px;
-  --bs-gutter-x: 1.25rem;
 }
 
-/* Pull the two columns slightly closer without changing sizes */
 @media (min-width: 992px){
+
+  /* Remove Bootstrap column padding ONLY for this hero */
+  .profile-hero-row > [class*="col-"]{
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Pull columns toward each other */
   .profile-hero-row{
-    --bs-gutter-x: 1rem;
+    margin-left: -40px;
+    margin-right: -40px;
   }
-  .profile-hero-row > .col-lg-7{
-    padding-right: 0.25rem;
-  }
-  .profile-hero-row > .col-lg-5{
-    padding-left: 0.25rem;
-  }
+
 }
 
 /* LEFT */
