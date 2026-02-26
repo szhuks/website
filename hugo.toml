@@ -4,7 +4,7 @@ title = "Sophia Zhukovsky"
 theme = "light-bi-hugo"
 
 relativeURLs = false
-canonifyURLs = true
+canonifyURLs = false
 
 enableRobotsTXT = true
 enableGitInfo = false
