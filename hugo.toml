@@ -50,7 +50,7 @@ profileShortbio = """
 <p>I'm Sophia, a project manager, consultant, and editor experienced in sustainability and community. I bring a personal approach to my work: not only will I work with your organization to design and execute a project plan, but I'll invest in getting to know your organizational mission from the inside out.</p>
 """
 
-profilePhoto = "/img/profile/home-profile-pic.jpg"
+profilePhoto = "img/profile/home-profile-pic.jpg"
 
 [Params.Author]
 name = ""
