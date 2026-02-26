@@ -53,7 +53,6 @@ body {
   }
 }
 
-/* Make tiles square and consistent */
 .about-well .about-gallery a,
 .about-well .gallery a,
 .about-gallery a {
@@ -104,11 +103,20 @@ body {
 
 /* ---------------- PROFILE HOMEPAGE ---------------- */
 
+.profile-hero {
+  padding-top: 90px;
+}
+
+@media (max-width: 992px) {
+  .profile-hero {
+    padding-top: 110px;
+  }
+}
+
 .intro-header{
   --bs-gutter-x: 2rem;
 }
 
-/* Headline + tagline spacing */
 .profile-hero-title{
   margin-top: 18px;
   margin-bottom: 8px;
@@ -118,45 +126,39 @@ body {
   margin-bottom: 26px;
 }
 
-/* Row spacing */
 .profile-hero-row{
   margin-top: 10px;
   margin-bottom: 30px;
 }
 
-/* LEFT side wrapper: keeps visual balance without forcing the box to be huge */
 .profile-card-wrap{
   width: 100%;
-  min-height: 420px;              /* matches the photo height on desktop */
+  min-height: 420px;
   display: flex;
-  align-items: center;            /* centers the box vertically within the column */
-  justify-content: center;        /* centers horizontally */
+  align-items: center;
+  justify-content: center;
 }
 
-/* The actual box stays snug to content (less white space) */
 .profile-box {
   background-color: #f7f7f7;
   padding: 26px;
   border-radius: 16px;
   box-shadow: 0 10px 26px rgba(0,0,0,0.06);
   width: 100%;
-  max-width: 640px;               /* prevents it from stretching too far left */
+  max-width: 640px;
   text-align: center;
 }
 
-/* Avoid huge paragraph margins inside */
 .profile-box-text p{
   margin: 0;
   line-height: 1.8;
   font-size: 18px;
 }
 
-/* Button inside the box */
 .profile-box-cta{
   margin-top: 18px;
 }
 
-/* RIGHT photo wrapper */
 .profile-photo-wrap{
   width: 100%;
   max-width: 360px;
@@ -174,7 +176,6 @@ body {
   box-shadow: 0 10px 26px rgba(0,0,0,0.08);
 }
 
-/* Mobile: remove forced heights so it stacks naturally */
 @media (max-width: 992px){
   .profile-card-wrap{
     min-height: auto;
