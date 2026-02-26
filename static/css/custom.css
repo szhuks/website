@@ -132,6 +132,11 @@ body {
   --bs-gutter-x: 2rem;
 }
 
+.profile-hero-row > [class*="col-"] {
+  padding-left: 0.5rem !important;
+  padding-right: 0.5rem !important;
+}
+
 .profile-card-wrap{
   width: 100%;
   min-height: 420px;
