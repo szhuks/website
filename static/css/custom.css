@@ -228,10 +228,62 @@ header,
   justify-content: center;
 }
 
+/* Round bottom of nav bar */
 .navbar {
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   background: #fff;
+}
+
+/* Make Projects page title match homepage hero */
+.intro-header h1 {
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+/* Match subtitle too */
+.intro-header p {
+  font-size: 18px;
+  font-weight: 300;
+}
+
+/* Projects page header */
+.section-header{
+  margin: 40px 0 24px;
+  text-align: center;
+}
+
+.section-title{
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 1.15;
+  margin: 0 0 8px;
+}
+
+.section-subtitle{
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.6;
+  opacity: .75;
+  margin: 0;
+}
+
+/* Projects subtitle styling */
+.section-subtitle{
+  font-size: 20px;       
+  font-weight: 300;
+  line-height: 1.6;
+  opacity: .8;
+  margin: 12px 0 48px;    
+}
+
+.section-title{
+  margin-bottom: 4px;   
+}
+
+.section-subtitle{
+  margin-top: 0;        
 }
