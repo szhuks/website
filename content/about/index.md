@@ -1,6 +1,8 @@
 ---
-layout: "about"
 title: "About me"
+subtitle: "My background"
+type: "about"
+showHeader: false 
 ---
 
 ## What I do

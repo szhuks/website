@@ -1,4 +1,4 @@
 ---
 title: "Projects"
-description: "Browse my work below."
+description: "Browse my work below"
 ---
