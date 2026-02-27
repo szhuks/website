@@ -102,7 +102,7 @@ body {
 }
 
 .profile-hero{
-  padding-top: 110px;
+  padding-top: 160px !important;
 }
 
 @media (max-width: 992px){
@@ -252,7 +252,8 @@ header,
 
 /* Projects page header */
 .section-header{
-  margin: 40px 0 24px;
+  padding-top: 120px !important;
+  margin-top: 0 !important;
   text-align: center;
 }
 
@@ -286,4 +287,9 @@ header,
 
 .section-subtitle{
   margin-top: 0;        
+}
+
+/* Offset page content for fixed-top navbar */
+main {
+  padding-top: 110px !important; /* adjust: 90–150 */
 }

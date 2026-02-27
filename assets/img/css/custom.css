@@ -92,11 +92,7 @@
   display: block;
 }
 
-/* Content sitting under fixed top navbar */
-body{
-  padding-top: 140px;
-}
-
-.intro-header {
-  padding-top: 160px !important;
+.container[role="main"]{
+  outline: 10px solid red !important;
+  margin-top: 140px !important;
 }
