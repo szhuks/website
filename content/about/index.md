@@ -39,4 +39,4 @@ I care deeply about sustainability, because to me, it means more than buzzwords 
 
 I'm currently accepting new projects for Q2 2026.
 
-{{< /contact-section >}}
+{{< contact-section >}}
