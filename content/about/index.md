@@ -33,10 +33,12 @@ I care deeply about sustainability, because to me, it means more than buzzwords 
 
 </div>
 
-{{< contact-section >}}
+<div class="about-box">
 
-**Let's work together.**
+## Get in touch
 
-I'm currently accepting new projects for Q2 2026.
+Get in touch today to discuss your needs, and how my services can meet them.
+
+</div>
 
 {{< contact-section >}}
