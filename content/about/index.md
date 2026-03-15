@@ -32,5 +32,3 @@ I care deeply about sustainability, because to me, it means more than buzzwords 
 {{< gallery dir="gallery" >}}
 
 </div>
-
-{{< contact-section >}}

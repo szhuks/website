@@ -9,6 +9,7 @@
 body {
   background-color: var(--page-bg);
   padding-top: 88px;
+  margin: 0;
 }
 
 .page-content,
@@ -207,28 +208,40 @@ header,
 ========================= */
 
 .about-card {
-  background: none !important;
-  border: none !important;
-  box-shadow: none !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  max-width: none !important;
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  max-width: none;
 }
 
 /* =========================
    ABOUT PAGE — SECTION CARDS 
 ========================= */
 
-.about-box {
+main .about-box,
+.content .about-box,
+div.about-box {
   background: white;
   border-radius: 20px;
   padding: 40px 48px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
   
   max-width: 980px; 
-  margin: 0 auto 40px; 
   width: 100%;
   box-sizing: border-box; 
+  
+  margin: 0 auto 24px auto; 
+  display: block;
+}
+
+.about-box:first-of-type {
+  margin-top: 0;
+}
+
+.about-box:last-child {
+  margin-bottom: 0;
 }
 
 .about-box h2 {
@@ -293,7 +306,7 @@ header,
 
 html,
 body {
-  background-color: #f5f7fa !important;
+  background-color: #f5f7fa;
 }
 
 main,
@@ -301,17 +314,17 @@ main,
 .single-page-content,
 .content,
 .intro-header {
-  background-color: #f5f7fa !important;
+  background-color: #f5f7fa;
 }
 
 section.section-primary-bg,
 section.section-primary-bg.projects-section {
-  background-color: #f5f7fa !important;
+  background-color: #f5f7fa;
 }
 
 section.section-primary-bg .container,
 section.section-primary-bg .container-fluid {
-  background-color: transparent !important;
+  background-color: transparent;
 }
 
 /* =========================
@@ -361,4 +374,69 @@ section.section-primary-bg .container-fluid {
 .project-hero img.fixed-img {
   height: auto;
   object-fit: contain;
+}
+
+/* =========================
+   CONTACT PAGE
+========================= */
+
+.contact-section {
+  display: block;
+  margin: 0 auto;
+  max-width: 980px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.contact-section h2 {
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+.contact-section h3 {
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.contact-section p {
+  line-height: 1.85;
+}
+
+.contact-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-section input,
+.contact-section textarea {
+  font-family: inherit;
+  transition: border-color 0.2s ease;
+}
+
+.contact-section input:focus,
+.contact-section textarea:focus {
+  outline: none;
+  border-color: #7d7ad2;
+}
+
+.contact-section button {
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.contact-section button:hover {
+  background: #6a67c4;
+  transform: translateY(-1px);
+}
+
+.contact-section button:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .contact-section > div:last-child {
+    grid-template-columns: 1fr !important;
+    gap: 30px !important;
+  }
 }
