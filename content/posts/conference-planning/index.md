@@ -1,8 +1,8 @@
 +++
 date = '2026-02-17T17:01:52-05:00'
 draft = false
-title = 'Conference planning and delivery for an NGO'
-description = 'Managing teams to develop the largest MUN conference in the world.'
+title = 'Conference planning and delivery for an international NGO'
+description = 'Guiding a team to develop the largest Model UN conference in the world.'
 image = "project-3.jpg"
 +++
 

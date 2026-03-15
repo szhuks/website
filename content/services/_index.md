@@ -1,7 +1,6 @@
 ---
 title: ""
 heading: "Services"
-description: "What I can help with"
 
 services:
   - title: "Project management"

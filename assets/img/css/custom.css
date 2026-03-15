@@ -59,11 +59,11 @@
 
 .section-header {
   text-align: center;
-  margin: 16px 0 12px;
+  margin: 20px 0 60px;
 }
 
 .section-title {
-  margin: 0;
+  margin: 0 0 48px;
   font-size: 64px;
   line-height: 1.05;
   font-weight: 500;

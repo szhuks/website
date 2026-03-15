@@ -1,6 +1,5 @@
 ---
 title: "About me"
-subtitle: "My background"
 type: "about"
 showHeader: false
 ---
