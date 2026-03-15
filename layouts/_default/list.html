@@ -1,21 +1,22 @@
 {{ define "main" }}
 <div class="container" role="main">
-  <div class="row">
-    <div class="col-md-12">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-10 col-xl-9">
 
-      {{ with .Description }}
-        <div class="section-subtitle text-center">
-          {{ . }}
-        </div>
-      {{ end }}
-
-      <div class="row">
-        {{ range .Paginator.Pages }}
-          {{ partial "post_preview_card" . }}
+      <header class="section-header">
+        <h1 class="section-title">{{ .Title }}</h1>
+        {{ with .Description }}
+          <p class="section-subtitle">{{ . }}</p>
         {{ end }}
-      </div>
+      </header>
 
     </div>
+  </div>
+
+  <div class="row">
+    {{ range .Paginator.Pages }}
+      {{ partial "post_preview_card" . }}
+    {{ end }}
   </div>
 </div>
 

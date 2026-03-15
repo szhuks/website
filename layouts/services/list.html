@@ -1,179 +1,178 @@
 {{ define "main" }}
 <section class="services-wrap">
 
-  <div class="services-layout">
+  <header class="services-header">
+    <h1 class="services-title">
+      {{ .Params.heading | default "Services" }}
+    </h1>
+    {{ with .Params.description }}
+      <p class="services-desc">{{ . }}</p>
+    {{ end }}
+  </header>
 
-    <!-- LEFT COLUMN -->
-    <header class="services-header">
-      <h1 class="services-title">
-        {{ .Params.heading | default "Services" }}
-      </h1>
-      {{ with .Params.description }}
-        <p class="services-desc">{{ . }}</p>
-      {{ end }}
-    </header>
+  <div class="services-content">
 
-    <!-- RIGHT COLUMN -->
-    <div class="services-content">
+    {{ $groups := .Params.services }}
+    {{ if not $groups }}
+      <p>Add your accordion data under <code>services:</code> in <code>content/services/_index.md</code>.</p>
+    {{ else }}
 
-      {{ $groups := .Params.services }}
-      {{ if not $groups }}
-        <p>Add your accordion data under <code>services:</code> in <code>content/services/_index.md</code>.</p>
-      {{ else }}
+      {{ range $gi, $g := $groups }}
+        <div class="services-group">
+          <div class="services-group-title">{{ $g.title }}</div>
 
-        {{ range $gi, $g := $groups }}
-          <div class="services-group">
-            <div class="services-group-title">{{ $g.title }}</div>
+          <div class="accordion" data-accordion>
+            {{ range $ii, $it := $g.items }}
+              {{ $id := printf "acc-%d-%d" $gi $ii }}
+              <div class="acc-item">
+                <button
+                  class="acc-trigger"
+                  type="button"
+                  aria-expanded="false"
+                  aria-controls="{{ $id }}"
+                >
+                  <span class="acc-label">{{ $it.title }}</span>
+                  <span class="acc-icon">+</span>
+                </button>
 
-            <div class="accordion" data-accordion>
-              {{ range $ii, $it := $g.items }}
-                {{ $id := printf "acc-%d-%d" $gi $ii }}
-                <div class="acc-item">
-                  <button
-                    class="acc-trigger"
-                    type="button"
-                    aria-expanded="false"
-                    aria-controls="{{ $id }}"
-                  >
-                    <span class="acc-label">{{ $it.title }}</span>
-                    <span class="acc-icon">+</span>
-                  </button>
-
-                  <div class="acc-panel" id="{{ $id }}">
-                    <div class="acc-panel-inner">
-                      {{ $it.body | markdownify }}
-                    </div>
+                <div class="acc-panel" id="{{ $id }}">
+                  <div class="acc-panel-inner">
+                    {{ $it.body | markdownify }}
                   </div>
                 </div>
-              {{ end }}
-            </div>
+              </div>
+            {{ end }}
           </div>
-        {{ end }}
-
+        </div>
       {{ end }}
 
-    </div>
+    {{ end }}
+
   </div>
 
 </section>
 
 <style>
   .services-wrap{
-    max-width:1200px;
-    margin:0 auto;
-    padding:80px 32px;
-    overflow-anchor:none;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px 32px 80px;
+    overflow-anchor: none;
   }
 
-  .services-layout{
-    display:grid;
-    grid-template-columns: 1fr 1.4fr;
-    gap:80px;
-    align-items:start;
-  }
-
-  @media (max-width: 980px){
-    .services-layout{
-      grid-template-columns: 1fr;
-      gap:40px;
-    }
-  }
-
-  .services-content{min-width:0;}
-
-  /* LEFT COLUMN */
   .services-header{
-    position:sticky;
-    top:40px;
+    text-align: center;
+    margin: 0 0 48px;
   }
 
-  @media (max-width: 980px){
-    .services-header{position:static;}
+  .services-title{
+    font-size: 36px;
+    line-height: 1.15;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    margin: 0 0 8px;
   }
 
-.services-title{
-  font-size: 40px;   
-  line-height: 1.1;
-  margin: 0 0 12px;
-}
+  .services-desc{
+    font-size: 20px;
+    line-height: 1.5;
+    opacity: .8;
+    margin: 0;
+  }
 
-.services-desc{
-  font-size: 20px;   
-  line-height: 1.6;
-  opacity: .75;
-  max-width: 48ch;
-  margin: 0;
-}
-  /* RIGHT COLUMN */
+  .services-content{
+    max-width: 760px;
+    margin: 0 auto;
+    min-width: 0;
+  }
+
   .services-group{
-    margin-bottom:48px;
+    margin-bottom: 48px;
   }
 
   .services-group-title{
-    font-size:13px;
-    letter-spacing:.12em;
-    text-transform:uppercase;
-    opacity:.6;
-    margin-bottom:18px;
+    font-size: 13px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    opacity: .6;
+    margin-bottom: 18px;
   }
 
   .accordion{
-    border-top:1px solid rgba(0,0,0,.12);
-    overflow-anchor:none;
+    border-top: 1px solid rgba(0,0,0,.12);
+    overflow-anchor: none;
   }
 
   .acc-item{
-    border-bottom:1px solid rgba(0,0,0,.12);
+    border-bottom: 1px solid rgba(0,0,0,.12);
   }
 
   .acc-trigger{
-    width:100%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:16px;
-    padding:20px 0;
-    background:transparent;
-    border:0;
-    text-align:left;
-    cursor:pointer;
-    font-size:18px;
-    font-weight:600;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 0;
+    background: transparent;
+    border: 0;
+    text-align: left;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
   }
 
   .acc-label{
-    flex:1;
+    flex: 1;
   }
 
   .acc-icon{
-    width:24px;
-    text-align:right;
-    font-size:20px;
-    opacity:.75;
-    transition:transform .25s ease;
+    width: 24px;
+    text-align: right;
+    font-size: 20px;
+    opacity: .75;
+    transition: transform .25s ease;
   }
 
   .acc-trigger[aria-expanded="true"] .acc-icon{
-    transform:rotate(45deg);
+    transform: rotate(45deg);
   }
 
   .acc-panel{
-    overflow:hidden;
-    height:0;
-    transition:height 260ms ease;
+    overflow: hidden;
+    height: 0;
+    transition: height 260ms ease;
   }
 
   .acc-panel-inner{
-    padding:0 0 24px;
-    font-size:18px;
-    line-height:1.6;
-    opacity:.85;
-    max-width:70ch;
+    padding: 0 0 24px;
+    font-size: 18px;
+    line-height: 1.6;
+    opacity: .85;
+    max-width: 70ch;
+  }
+
+  @media (max-width: 768px){
+    .services-wrap{
+      padding: 20px 20px 64px;
+    }
+
+    .services-header{
+      margin-bottom: 36px;
+    }
+
+    .services-title{
+      font-size: 42px;
+    }
+
+    .services-desc{
+      font-size: 18px;
+    }
   }
 
   @media (prefers-reduced-motion: reduce){
-    .acc-panel{transition:none;}
-    .acc-icon{transition:none;}
+    .acc-panel{transition: none;}
+    .acc-icon{transition: none;}
   }
 </style>
 

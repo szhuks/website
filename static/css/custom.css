@@ -6,15 +6,16 @@
   --page-bg: #f5f7fa;
 }
 
+body {
+  background-color: var(--page-bg);
+  padding-top: 88px;
+}
+
 .page-content,
 .single-page-content,
 .content,
 main .container[role="main"] {
   max-width: 980px;
-}
-
-body {
-  background-color: var(--page-bg);
 }
 
 main,
@@ -28,7 +29,7 @@ main,
 ========================= */
 
 main {
-  padding-top: 110px !important;
+  padding-top: 0;
 }
 
 .navbar {
@@ -43,9 +44,10 @@ main {
    SECTION HEADERS
 ========================= */
 
+/* Offset only the theme header area used by Projects/About */
+
 .section-header{
-  padding-top: 120px !important;
-  margin-top: 0 !important;
+  margin: 24px 0 0;
   text-align: center;
 }
 
@@ -61,7 +63,7 @@ main {
   font-weight: 300;
   line-height: 1.6;
   opacity: .8;
-  margin: 12px 0 48px;
+  margin: 12px 0 40px;
 }
 
 /* =========================
@@ -69,12 +71,12 @@ main {
 ========================= */
 
 .profile-hero{
-  padding-top: 160px !important;
+  padding-top: 0;
 }
 
 @media (max-width: 992px){
   .profile-hero{
-    padding-top: 120px;
+    padding-top: 16px;
   }
 }
 
@@ -174,10 +176,12 @@ header,
     min-height: auto;
     margin-bottom: 18px;
   }
+
   .profile-photo-wrap{
     min-height: auto;
     max-width: 320px;
   }
+
   .profile-photo{
     height: auto;
   }

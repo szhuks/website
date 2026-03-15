@@ -32,22 +32,67 @@
   margin-bottom: 0;
 }
 
-/* Header above card */
+/* =========================
+   STANDARD HEADER
+   ========================= */
+
+/* Neutralize theme header spacing */
+
+.header-section {
+  margin: 0;
+  padding: 0;
+}
+
+.header-section .intro-header.no-img {
+  margin: 0;
+  padding: 0;
+  min-height: auto;
+}
+
+.header-section .intro-header .container,
+.header-section .intro-header .row {
+  margin: 0;
+  padding: 0;
+}
+
+/* Your standardized header */
 
 .section-header {
-  margin: 60px 0 24px;
+  text-align: center;
+  margin: 16px 0 12px;
 }
 
 .section-title {
-  font-size: 40px;
+  margin: 0;
+  font-size: 64px;
+  line-height: 1.05;
   font-weight: 500;
-  margin-bottom: 6px;
+  letter-spacing: -0.02em;
 }
 
 .section-subtitle {
+  margin: 8px 0 32px;
+  text-align: center;
   font-size: 20px;
+  line-height: 1.5;
   opacity: 0.8;
-  margin-bottom: 24px;
+}
+
+@media (max-width: 768px) {
+
+  .section-header {
+    margin: 12px 0 10px;
+  }
+
+  .section-title {
+    font-size: 42px;
+  }
+
+  .section-subtitle {
+    font-size: 18px;
+    margin-bottom: 24px;
+  }
+
 }
 
 /* =========================
@@ -128,8 +173,6 @@
 .project-card p:last-child {
   margin-bottom: 0;
 }
-
-/* Mobile adjustments */
 
 @media (max-width: 768px) {
 

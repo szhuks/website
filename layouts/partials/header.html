@@ -1,4 +1,9 @@
-{{ $hideIntro := or (eq .Type "about") (eq .Section "about") }}
+{{ $hideIntro := or
+  (eq .Type "about")
+  (eq .Section "about")
+  (eq .Section "services")
+  (eq .Section "posts")
+}}
 
 {{ if .IsHome }}
   {{ if .Site.Params.homeTitle }}
@@ -23,7 +28,7 @@
 {{ else }}
   {{ if not $hideIntro }}
   <header class="header-section {{ if $bigimg }}has-img{{ end }}">
-    <div class="intro-header no-img mt-10 pb-2">
+    <div class="intro-header no-img">
       <div class="container">
         <div class="row justify-content-center">
 
@@ -55,21 +60,13 @@
                 </div>
               {{ else }}
                 <!-- Displaying the title -->
-                <div class="{{ .Type }}-heading">
-                  <h1 class="fw-medium lh-1 align-items-center">{{ .Title }}</h1>
+                <div class="section-header text-center">
+                  <h1 class="section-title">{{ .Title }}</h1>
                 </div>
               {{ end }}
 
-              {{ if eq .Type "list" }}
-                <h1 class="">{{ if .Data.Singular }}#{{ end }}{{ .Title }}</h1>
-              {{ end }}
-
               {{ if $subtitle }}
-                {{ if eq .Type "page" }}
-                  <span class="{{ .Type }}-subheading fw-light mb-4">{{ $subtitle }}</span>
-                {{ else }}
-                  <h4 class="{{ .Type }}-subheading fw-light mb-4">{{ $subtitle }}</h4>
-                {{ end }}
+                 <p class="section-subtitle">{{ $subtitle }}</p>
               {{ end }}
 
               {{ if .Page.IsPage }}
