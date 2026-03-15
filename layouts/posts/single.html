@@ -1,0 +1,23 @@
+{{ define "main" }}
+<div class="container" role="main">
+  <div class="row justify-content-md-center">
+    <div class="col-12 col-lg-10 col-xl-9">
+
+      {{ with .Resources.GetMatch .Params.image }}
+        <div class="project-hero">
+          <img
+            src="{{ .RelPermalink }}"
+            alt="{{ $.Title }}"
+            class="img-fluid rounded-4"
+          >
+        </div>
+      {{ end }}
+
+      <div class="project-card">
+        {{ .Content }}
+      </div>
+
+    </div>
+  </div>
+</div>
+{{ end }}
