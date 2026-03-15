@@ -33,12 +33,4 @@ I care deeply about sustainability, because to me, it means more than buzzwords 
 
 </div>
 
-<div class="about-box">
-
-## Get in touch
-
-Get in touch today to discuss your needs, and how my services can meet them.
-
-</div>
-
 {{< contact-section >}}
