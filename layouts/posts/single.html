@@ -13,8 +13,17 @@
         </div>
       {{ end }}
 
+      <!-- ADDED THIS HEADER BLOCK -->
+      <header class="section-header text-center" style="margin-top: 30px;">
+        <h1 class="section-title">{{ .Title }}</h1>
+        {{ with .Params.subtitle }}
+          <p class="section-subtitle">{{ . }}</p>
+        {{ end }}
+      </header>
+      <!-- END ADDED BLOCK -->
+
       <div class="project-card">
-        {{ .Content }}
+        {{ .Content | safeHTML }}
       </div>
 
     </div>
