@@ -470,3 +470,17 @@ section.section-primary-bg .container-fluid {
   font-size: 18px !important;
   display: block !important;
 }
+
+/* =========================
+   DARK MODE IMAGE FIX
+========================= */
+
+@media (prefers-color-scheme: dark) {
+  
+  .profile-photo,
+  .about-gallery-item img,
+  .project-hero img,
+  img {
+    filter: invert(1) !important; 
+  }
+}
