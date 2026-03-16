@@ -472,21 +472,17 @@ section.section-primary-bg .container-fluid {
 }
 
 /* =========================
-   DARK MODE IMAGE FIX 
+   DARK MODE IMAGE FIX (GLOBAL THEME OVERRIDE)
 ========================= */
 
 @media (prefers-color-scheme: dark) {
-  
-  img {
-    filter: none !important;
-    -webkit-filter: none !important;
+  img,
+  .profile-photo,
+  .about-gallery-item img,
+  .project-hero img {
+    filter: invert(1) hue-rotate(180deg) !important;
+    -webkit-filter: invert(1) hue-rotate(180deg) !important; 
     
-    filter: invert(1) !important;
-    -webkit-filter: invert(1) !important;
-  }
-
-  .profile-photo {
-    filter: invert(1) !important;
-    -webkit-filter: invert(1) !important;
+    background-color: transparent !important; 
   }
 }
