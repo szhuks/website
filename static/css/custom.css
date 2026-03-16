@@ -472,15 +472,21 @@ section.section-primary-bg .container-fluid {
 }
 
 /* =========================
-   DARK MODE IMAGE FIX
+   DARK MODE IMAGE FIX 
 ========================= */
 
 @media (prefers-color-scheme: dark) {
   
-  .profile-photo,
-  .about-gallery-item img,
-  .project-hero img,
   img {
-    filter: invert(1) !important; 
+    filter: none !important;
+    -webkit-filter: none !important;
+    
+    filter: invert(1) !important;
+    -webkit-filter: invert(1) !important;
+  }
+
+  .profile-photo {
+    filter: invert(1) !important;
+    -webkit-filter: invert(1) !important;
   }
 }
