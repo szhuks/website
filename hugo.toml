@@ -1,4 +1,4 @@
-baseURL = "https://sophiazhukovsky.net"
+baseURL = "http://sophiazhukovsky.net"
 languageCode = "en-us"
 title = "Sophia Zhukovsky"
 theme = "light-bi-hugo"
